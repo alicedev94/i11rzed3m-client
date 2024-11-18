@@ -1,6 +1,10 @@
 import webpush from "web-push";
 
-export default class serviceWorker {
+const publicKey = process.env.PUBLIC_KEY;
+const privateKey = process.env.PRIVATE_KEY;
+const mailto = process.env.MAILTO;
+
+export default class PushNotificationService {
   // Client service
   static active() {
     if ("serviceWorker" in navigator) {
@@ -17,7 +21,15 @@ export default class serviceWorker {
 
   // Server service
   async sendNotification(subscription, payload) {
-    const response = await webpush.sendNotification(subscription, payload);
-    return response;
+    try {
+      const response = await webpush.sendNotification(subscription, payload);
+      return response;
+    } catch (error) {
+      console.error("sendNotification:", error.message);
+      return {
+        error: true,
+        description_error: error.message,
+      };
+    }
   }
 }

@@ -1,3 +1,4 @@
+import serviceWorker from './modules/service-worker/main.services.js';
 import { sum } from './modules/sum.js';
 
-export { sum };
+export { su, serviceWorker };

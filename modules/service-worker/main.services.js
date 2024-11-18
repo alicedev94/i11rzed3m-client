@@ -1,8 +1,8 @@
 import webpush from "web-push";
 
-const publicKey = process.env.PUBLIC_KEY;
-const privateKey = process.env.PRIVATE_KEY;
-const mailto = process.env.MAILTO;
+// const publicKey = process.env.PUBLIC_KEY;
+// const privateKey = process.env.PRIVATE_KEY;
+// const mailto = process.env.MAILTO;
 
 export default class PushNotificationService {
   // Client service
@@ -15,8 +15,8 @@ export default class PushNotificationService {
   }
 
   // Server service
-  init() {
-    webpush.setVapidDetails(mailto, publicKey, privateKey);
+  init(publicKey, privateKey) {
+    webpush.setVapidDetails("mailto:example@yourdomain.org", publicKey, privateKey);
   }
 
   // Server service

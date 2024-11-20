@@ -1,4 +1,6 @@
-import webpush from "web-push";
+// import webpush from "web-push";
+
+// console.log(webpush)
 
 // Client service
 export function active() {
@@ -22,7 +24,7 @@ export const urlBase64ToUint8Array = (base64String) => {
 };
 
 // Server service
-export const init = (publicKey, privateKey) => {
+export const init = (webpush,  publicKey, privateKey) => {
   webpush.setVapidDetails(
     "mailto:example@yourdomain.org",
     publicKey,

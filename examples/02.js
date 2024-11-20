@@ -1,4 +1,3 @@
-// import {  } from '../index'
+import { sum  } from '../index.js'
 
-
-// console.log();
+console.log(sum()); 

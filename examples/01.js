@@ -1,3 +1,3 @@
-import { sum } from '../index.js';
+import { active } from '../index';
 
-console.log('Example 01: ', sum(1, 2))
+console.log('Example 01: ', active());

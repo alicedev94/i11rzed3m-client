@@ -1,6 +1,5 @@
-// import { active, urlBase64ToUint8Array, init, sendNotification } from './modules/push.js';
-
-export { sum, active, urlBase64ToUint8Array, init } from './modules/push.js'
+export { active, urlBase64ToUint8Array } from './modules/push/client.js'
+export { init, sendNotification } from './modules/push/server.js'
 
 
 

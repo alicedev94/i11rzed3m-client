@@ -21,14 +21,14 @@ export const urlBase64ToUint8Array = (base64String) => {
   return outputArray;
 };
 
-// // Server service
-// export const init = (publicKey, privateKey) => {
-//   webpush.setVapidDetails(
-//     "mailto:example@yourdomain.org",
-//     publicKey,
-//     privateKey
-//   );
-// };
+// Server service
+export const init = (publicKey, privateKey) => {
+  webpush.setVapidDetails(
+    "mailto:example@yourdomain.org",
+    publicKey,
+    privateKey
+  );
+};
 
 // // Server service
 // export const sendNotification = async (subscription, payload) => {

@@ -1,13 +1,13 @@
 // import webpush from "web-push";
 
 // Client service
-// export function active() {
-//   if ("serviceWorker" in navigator) {
-//     alert("serviceWorker: active");
-//   } else {
-//     alert("serviceWorker: false");
-//   }
-// }
+export function active() {
+  if ("serviceWorker" in navigator) {
+    alert("serviceWorker: active");
+  } else {
+    alert("serviceWorker: false");
+  }
+}
 
 // Client service
 // export const urlBase64ToUint8Array = (base64String) => {

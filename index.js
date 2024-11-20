@@ -6,7 +6,7 @@
 
 // export { active };
 
-export { sum } from './modules/push.js'
+export { sum, active } from './modules/push.js'
 
 
 

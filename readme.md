@@ -28,8 +28,7 @@ onMounted(async () => {
   }
 });
 </script>
-
-```javascript
+```
 
 ## Configuración del Service Worker
 
@@ -44,3 +43,4 @@ self.addEventListener("push", (event) => {
     icon: data.icon,
   });
 });
+```

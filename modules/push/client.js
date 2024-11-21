@@ -19,20 +19,10 @@ export const urlBase64ToUint8Array = (base64String) => {
   return outputArray;
 };
 
-export const configSw = () => {
-  self.addEventListener("push", (event) => {
-    const data = event.data.json();
-    self.registration.showNotification(data.title, {
-      body: data.body,
-      icon: data.icon,
-    });
-  });
-};
-
 export const subscribe = async (publicKey) => {
   if ("serviceWorker" in navigator) {
     try {
-      const registration = await navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      const registration = await navigator.serviceWorker.register("/sw-push-config.js"); // This route should be dynamic and come from the client
       console.log("Service Worker registrado:", registration);
       
       const permission = await Notification.requestPermission();

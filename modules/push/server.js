@@ -1,6 +1,6 @@
 import webpush from "web-push";
 
-export const init = (webpush,  publicKey, privateKey) => {
+export const init = (publicKey, privateKey) => {
   webpush.setVapidDetails(
     "mailto:example@yourdomain.org",
     publicKey,

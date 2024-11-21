@@ -33,6 +33,7 @@ export const subscribe = async (publicKey) => {
           applicationServerKey: urlBase64ToUint8Array(publicKey),
         });
 
+        console.log("|| --------- ||");
         return subscription;
       } else {
         console.error("Permiso de notificaciones denegado");
@@ -43,10 +44,12 @@ export const subscribe = async (publicKey) => {
   }
 };
 
-export const send = async (url, message) => {
+export const send = async (url, message, publickey) => {
   try {
     const payload = JSON.stringify(message);
-    const subscription = await subscribe();
+    const subscription = await subscribe(publickey);
+
+    console.log("server subscription", subscription)
 
     const response = await axios.post(`${url}/send-notification`, { payload, subscription });
     const { data } = response;

@@ -22,18 +22,15 @@ export const urlBase64ToUint8Array = (base64String) => {
 export const subscribe = async (publicKey) => {
   if ("serviceWorker" in navigator) {
     try {
-      const registration = await navigator.serviceWorker.register("/sw-push-config.js"); // This route should be dynamic and come from the client
-      console.log("Service Worker registrado:", registration);
+      const registration = await navigator.serviceWorker.register("/sw-push-config.js"); 
       
       const permission = await Notification.requestPermission();
       if (permission === 'granted') {
-        console.log("Permiso de notificaciones concedido");
         const subscription = await registration.pushManager.subscribe({
           userVisibleOnly: true,
           applicationServerKey: urlBase64ToUint8Array(publicKey),
         });
 
-        console.log("|| --------- ||");
         return subscription;
       } else {
         console.error("Permiso de notificaciones denegado");
@@ -49,12 +46,9 @@ export const send = async (url, message, publickey) => {
     const payload = JSON.stringify(message);
     const subscription = await subscribe(publickey);
 
-    console.log("server subscription", subscription)
-
     const response = await axios.post(`${url}/send-notification`, { payload, subscription });
     const { data } = response;
 
-    console.log(data);
     return data;
   } catch (error) {
     console.error('Error al enviar la notificación:', error.message);
